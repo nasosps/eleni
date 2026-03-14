@@ -1,0 +1,303 @@
+media:
+  input: media
+  output: media
+
+content:
+  - name: site_content
+    label: Site Content
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: meta
+        label: SEO
+        type: object
+        fields:
+          - name: pageTitle
+            label: Browser title
+            type: string
+          - name: description
+            label: Meta description
+            type: text
+      - name: brand
+        label: Brand
+        type: object
+        fields:
+          - name: name
+            label: Brand name
+            type: string
+          - name: tagline
+            label: Brand tagline
+            type: string
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: eyebrow
+            label: Small intro line
+            type: string
+          - name: title
+            label: Main title
+            type: text
+          - name: lead
+            label: Intro paragraph
+            type: text
+          - name: primaryCta
+            label: Main button
+            type: object
+            fields:
+              - name: label
+                label: Button text
+                type: string
+              - name: href
+                label: Button link
+                type: string
+          - name: secondaryCta
+            label: Secondary button
+            type: object
+            fields:
+              - name: label
+                label: Button text
+                type: string
+              - name: href
+                label: Button link
+                type: string
+          - name: highlights
+            label: Highlight cards
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Card title
+                type: string
+              - name: text
+                label: Card text
+                type: text
+          - name: mainImage
+            label: Main hero image
+            type: object
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: alt
+                label: Alt text
+                type: string
+              - name: caption
+                label: Caption
+                type: string
+          - name: topImage
+            label: Top small image
+            type: object
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: alt
+                label: Alt text
+                type: string
+          - name: bottomImage
+            label: Bottom small image
+            type: object
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: alt
+                label: Alt text
+                type: string
+      - name: about
+        label: About
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: title
+            label: Section title
+            type: text
+          - name: paragraphs
+            label: Paragraphs
+            type: text
+            list: true
+          - name: points
+            label: Info cards
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Card title
+                type: string
+              - name: text
+                label: Card text
+                type: text
+          - name: largeImage
+            label: Large image
+            type: object
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: alt
+                label: Alt text
+                type: string
+          - name: smallImage
+            label: Small image
+            type: object
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: alt
+                label: Alt text
+                type: string
+          - name: quote
+            label: Quote
+            type: text
+      - name: collections
+        label: Collections
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: title
+            label: Section title
+            type: text
+          - name: intro
+            label: Intro text
+            type: text
+          - name: items
+            label: Collection cards
+            type: object
+            list: true
+            fields:
+              - name: tag
+                label: Small tag
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Description
+                type: text
+              - name: image
+                label: Image
+                type: image
+              - name: alt
+                label: Alt text
+                type: string
+      - name: process
+        label: Process
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: title
+            label: Section title
+            type: text
+          - name: intro
+            label: Intro text
+            type: text
+          - name: items
+            label: Process cards
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Card title
+                type: string
+              - name: text
+                label: Card text
+                type: text
+      - name: gallery
+        label: Gallery
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: title
+            label: Section title
+            type: text
+          - name: intro
+            label: Intro text
+            type: text
+          - name: items
+            label: Gallery images
+            type: object
+            list: true
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: featured
+                label: Large card
+                type: boolean
+              - name: title
+                label: Optional title
+                type: string
+              - name: label
+                label: Optional small label
+                type: string
+              - name: description
+                label: Optional lightbox description
+                type: text
+              - name: alt
+                label: Optional alt text
+                type: string
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: title
+            label: Section title
+            type: text
+          - name: intro
+            label: Intro text
+            type: text
+          - name: instagramValue
+            label: Instagram
+            type: string
+          - name: emailValue
+            label: Email
+            type: string
+          - name: phoneValue
+            label: Phone
+            type: string
+          - name: locationValue
+            label: Location
+            type: string
+          - name: noteEyebrow
+            label: Note small label
+            type: string
+          - name: noteTitle
+            label: Note title
+            type: text
+          - name: noteText
+            label: Note text
+            type: text
+          - name: backToTopLabel
+            label: Back to top button
+            type: string
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: tagline
+            label: Tagline
+            type: string
+    settings:
+      hide: true
+      content:
+        merge: true
+      editor:
+        preview: false
+      model: content

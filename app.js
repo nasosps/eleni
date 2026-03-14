@@ -1,56 +1,12 @@
-const galleryItems = [
-  "649929323_1445592036957617_4811656233790342485_n.jpg",
-  "646401605_1611295286792531_1693032952503617363_n.jpg",
-  "642956299_3134608536710752_4839227349564883787_n.jpg",
-  "641312967_1248509870057918_8212363899290476648_n.jpg",
-  "634117934_1619186429319204_5813764445398311840_n.jpg",
-  "645077545_1441517390859420_6596153206727601340_n.jpg",
-  "648544957_1802575880714048_1335952957219468782_n.jpg",
-  "643616457_957602726705317_5555487890073409819_n.jpg",
-  "644971420_1449475820003487_7811157862106139159_n.jpg",
-  "646842976_1246029544344149_5933204039512651522_n.jpg",
-  "648829065_1503363467788701_4082342472121566622_n.jpg",
-  "648851068_26206371378982213_3708839730726218740_n.jpg",
-  "641255880_1248269160733653_7570571072478165710_n.jpg",
-  "641285231_1461598061980593_1632709767084401583_n.jpg",
-  "641636503_959777936712726_7303549459640143855_n.jpg",
-  "641845189_777803022058660_6414789065466456393_n.jpg",
-  "641912496_2114377819376397_2337978751419770182_n.jpg",
-  "645051324_973885058644608_2323347147895695078_n.jpg",
-  "644022946_914314391569912_4291778504126472225_n.jpg",
-  "644029135_928073129604783_6718963257448592149_n.jpg",
-  "643832402_1826834097977567_9022649661772240143_n.jpg",
-  "640923784_3856632861306100_563823942911455551_n.jpg",
-  "640687733_25933642536257263_3895487770486450629_n.jpg",
-  "638476255_950009787368033_2359626893566046148_n.jpg",
-  "638285080_940732005006669_818375781340797325_n.jpg",
-  "647557994_1235445305342438_2060824980986728623_n.jpg",
-];
+let content;
+let currentIndex = 0;
+let galleryItems = [];
 
-const titleSeeds = [
-  "Ανθισμένο κερί",
-  "Ρομαντική παλέτα",
-  "Pastel candle",
-  "Handmade candle",
-  "Gift-ready στιγμή",
-  "Soft candle story",
-  "Seasonal candle",
-  "Delicate candle",
-];
-
-const labelSeeds = [
-  "Decor candle",
-  "Pastel candle",
-  "Handmade candle",
-  "Gift-ready candle",
-];
-
-const featuredIndexes = new Set([0, 3, 6, 11, 17, 21]);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const siteNav = document.getElementById("site-nav");
 const galleryGrid = document.getElementById("gallery-grid");
 const navToggle = document.querySelector(".nav-toggle");
-const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
 const lightboxTitle = document.getElementById("lightbox-title");
@@ -60,10 +16,271 @@ const closeButton = document.querySelector(".lightbox-close");
 const prevButton = document.querySelector(".lightbox-nav-prev");
 const nextButton = document.querySelector(".lightbox-nav-next");
 
-let currentIndex = 0;
+function getElement(id) {
+  return document.getElementById(id);
+}
 
-function getRevealElements() {
-  return Array.from(document.querySelectorAll("[data-reveal]"));
+function setText(id, value) {
+  const element = getElement(id);
+
+  if (!element || value == null) {
+    return;
+  }
+
+  element.textContent = value;
+}
+
+function setImage(id, image) {
+  const element = getElement(id);
+
+  if (!element || !image) {
+    return;
+  }
+
+  element.src = image.src;
+  element.alt = image.alt || "";
+}
+
+function setLink(id, link) {
+  const element = getElement(id);
+
+  if (!element || !link) {
+    return;
+  }
+
+  element.textContent = link.label;
+  element.href = link.href;
+}
+
+function buildParagraphs(containerId, paragraphs) {
+  const container = getElement(containerId);
+
+  if (!container) {
+    return;
+  }
+
+  container.replaceChildren();
+
+  paragraphs.forEach((paragraph) => {
+    const element = document.createElement("p");
+    element.textContent = paragraph;
+    container.appendChild(element);
+  });
+}
+
+function renderNavigation() {
+  if (!siteNav) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  content.navigation.forEach((item) => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = item.label;
+
+    if (item.isCta) {
+      link.className = "site-nav__cta";
+    }
+
+    fragment.appendChild(link);
+  });
+
+  siteNav.replaceChildren(fragment);
+}
+
+function renderHeroHighlights() {
+  const container = getElement("hero-highlights");
+
+  if (!container) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  content.hero.highlights.forEach((item) => {
+    const listItem = document.createElement("li");
+    const title = document.createElement("strong");
+    const text = document.createElement("span");
+
+    title.textContent = item.title;
+    text.textContent = item.text;
+
+    listItem.append(title, text);
+    fragment.appendChild(listItem);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function renderAboutPoints() {
+  const container = getElement("about-points");
+
+  if (!container) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  content.about.points.forEach((item) => {
+    const card = document.createElement("div");
+    const title = document.createElement("strong");
+    const text = document.createElement("span");
+
+    card.className = "story-point";
+    title.textContent = item.title;
+    text.textContent = item.text;
+
+    card.append(title, text);
+    fragment.appendChild(card);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function renderCollections() {
+  const container = getElement("collections-grid");
+
+  if (!container) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  content.collections.items.forEach((item, index) => {
+    const card = document.createElement("article");
+    const media = document.createElement("div");
+    const image = document.createElement("img");
+    const badge = document.createElement("span");
+    const body = document.createElement("div");
+    const tag = document.createElement("p");
+    const title = document.createElement("h3");
+    const text = document.createElement("p");
+
+    card.className = "collection-card";
+    card.setAttribute("data-reveal", "");
+
+    media.className = "collection-media";
+    image.src = item.image;
+    image.alt = item.alt || item.title;
+    badge.className = "collection-index";
+    badge.textContent = String(index + 1).padStart(2, "0");
+
+    body.className = "collection-body";
+    tag.className = "collection-tag";
+    tag.textContent = item.tag;
+    title.textContent = item.title;
+    text.textContent = item.text;
+
+    media.append(image, badge);
+    body.append(tag, title, text);
+    card.append(media, body);
+    fragment.appendChild(card);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function renderProcessCards() {
+  const container = getElement("process-track");
+
+  if (!container) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  content.process.items.forEach((item, index) => {
+    const card = document.createElement("article");
+    const number = document.createElement("span");
+    const title = document.createElement("h3");
+    const text = document.createElement("p");
+
+    card.className = "process-card";
+    card.setAttribute("data-reveal", "");
+
+    number.className = "process-number";
+    number.textContent = String(index + 1).padStart(2, "0");
+    title.textContent = item.title;
+    text.textContent = item.text;
+
+    card.append(number, title, text);
+    fragment.appendChild(card);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function buildContactPill(label, value) {
+  const pill = document.createElement("div");
+  const labelElement = document.createElement("span");
+  const valueElement = document.createElement("strong");
+
+  pill.className = "contact-pill";
+  labelElement.textContent = label;
+  valueElement.textContent = value;
+
+  pill.append(labelElement, valueElement);
+
+  return pill;
+}
+
+function renderContactGrid() {
+  const container = getElement("contact-grid");
+
+  if (!container) {
+    return;
+  }
+
+  const items = [
+    { label: content.contact.instagramLabel, value: content.contact.instagramValue },
+    { label: content.contact.emailLabel, value: content.contact.emailValue },
+    { label: content.contact.phoneLabel, value: content.contact.phoneValue },
+    { label: content.contact.locationLabel, value: content.contact.locationValue },
+  ];
+
+  const fragment = document.createDocumentFragment();
+
+  items.forEach((item) => {
+    fragment.appendChild(buildContactPill(item.label, item.value));
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function getGalleryTitle(item, index) {
+  if (item.title) {
+    return item.title;
+  }
+
+  const seeds = content.gallery.titleSeeds;
+  return `${seeds[index % seeds.length]} ${String(index + 1).padStart(2, "0")}`;
+}
+
+function getGalleryLabel(item, index) {
+  if (item.label) {
+    return item.label;
+  }
+
+  const seeds = content.gallery.labelSeeds;
+  return seeds[index % seeds.length];
+}
+
+function getGalleryAlt(item, index) {
+  if (item.alt) {
+    return item.alt;
+  }
+
+  return `Χειροποίητο κερί ${index + 1} της Ελένης Μαυρίδου`;
+}
+
+function getGalleryDescription(item, index) {
+  if (item.description) {
+    return item.description;
+  }
+
+  return `${getGalleryLabel(item, index)} ${content.gallery.defaultDescription}`;
 }
 
 function buildGallery() {
@@ -71,46 +288,51 @@ function buildGallery() {
     return;
   }
 
+  galleryItems = content.gallery.items.slice();
   const fragment = document.createDocumentFragment();
 
-  galleryItems.forEach((src, index) => {
+  galleryItems.forEach((item, index) => {
     const button = document.createElement("button");
-    const title = `${titleSeeds[index % titleSeeds.length]} ${String(index + 1).padStart(2, "0")}`;
-    const label = labelSeeds[index % labelSeeds.length];
+    const image = document.createElement("img");
+    const meta = document.createElement("span");
+    const small = document.createElement("small");
+    const strong = document.createElement("strong");
 
     button.type = "button";
-    button.className = featuredIndexes.has(index) ? "gallery-card gallery-card--featured" : "gallery-card";
+    button.className = item.featured ? "gallery-card gallery-card--featured" : "gallery-card";
     button.dataset.index = String(index);
     button.setAttribute("data-reveal", "");
-    button.setAttribute("aria-label", `Άνοιγμα κεριού ${index + 1}`);
-    button.innerHTML = `
-      <img
-        src="${src}"
-        alt="Χειροποίητο κερί ${index + 1} της Ελένης Μαυρίδου"
-        decoding="async"
-      />
-      <span class="gallery-card__meta">
-        <small>${label}</small>
-        <strong>${title}</strong>
-      </span>
-    `;
+    button.setAttribute("aria-label", `Άνοιγμα εικόνας ${index + 1}`);
 
+    image.src = item.src;
+    image.alt = getGalleryAlt(item, index);
+    image.decoding = "async";
+
+    meta.className = "gallery-card__meta";
+    small.textContent = getGalleryLabel(item, index);
+    strong.textContent = getGalleryTitle(item, index);
+
+    meta.append(small, strong);
+    button.append(image, meta);
     button.addEventListener("click", () => openLightbox(index));
     fragment.appendChild(button);
   });
 
-  galleryGrid.appendChild(fragment);
+  galleryGrid.replaceChildren(fragment);
 }
 
 function updateLightbox() {
-  const title = `${titleSeeds[currentIndex % titleSeeds.length]} ${String(currentIndex + 1).padStart(2, "0")}`;
-  const label = labelSeeds[currentIndex % labelSeeds.length];
+  const item = galleryItems[currentIndex];
 
-  lightboxImage.src = galleryItems[currentIndex];
-  lightboxImage.alt = `Χειροποίητο κερί ${currentIndex + 1} της Ελένης Μαυρίδου`;
-  lightboxTitle.textContent = title;
+  if (!item) {
+    return;
+  }
+
+  lightboxImage.src = item.src;
+  lightboxImage.alt = getGalleryAlt(item, currentIndex);
+  lightboxTitle.textContent = getGalleryTitle(item, currentIndex);
   lightboxCounter.textContent = `${String(currentIndex + 1).padStart(2, "0")} / ${String(galleryItems.length).padStart(2, "0")}`;
-  lightboxSubtitle.textContent = `${label} με ρομαντική, χειροποίητη αισθητική κεριού.`;
+  lightboxSubtitle.textContent = getGalleryDescription(item, currentIndex);
 }
 
 function openLightbox(index) {
@@ -140,8 +362,12 @@ function stepLightbox(step) {
   updateLightbox();
 }
 
+function getRevealElements() {
+  return Array.from(document.querySelectorAll("[data-reveal]"));
+}
+
 function setupNavigation() {
-  if (!navToggle) {
+  if (!navToggle || !siteNav) {
     return;
   }
 
@@ -150,7 +376,7 @@ function setupNavigation() {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  navLinks.forEach((link) => {
+  siteNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       document.body.classList.remove("nav-open");
       navToggle.setAttribute("aria-expanded", "false");
@@ -184,7 +410,7 @@ function setupReveal() {
     {
       threshold: 0.16,
       rootMargin: "0px 0px -60px 0px",
-    },
+    }
   );
 
   elements.forEach((element, index) => {
@@ -227,7 +453,104 @@ function setupLightbox() {
   });
 }
 
-buildGallery();
-setupNavigation();
-setupReveal();
-setupLightbox();
+function renderSite() {
+  document.title = content.meta.pageTitle;
+
+  const description = document.querySelector('meta[name="description"]');
+  if (description) {
+    description.setAttribute("content", content.meta.description);
+  }
+
+  setText("brand-mark", content.brand.mark);
+  setText("brand-name", content.brand.name);
+  setText("brand-tagline", content.brand.tagline);
+
+  renderNavigation();
+
+  setText("hero-eyebrow", content.hero.eyebrow);
+  setText("hero-title", content.hero.title);
+  setText("hero-lead", content.hero.lead);
+  setLink("hero-primary-cta", content.hero.primaryCta);
+  setLink("hero-secondary-cta", content.hero.secondaryCta);
+  renderHeroHighlights();
+  setImage("hero-main-image", content.hero.mainImage);
+  setText("hero-main-caption", content.hero.mainImage.caption);
+  setImage("hero-top-image", content.hero.topImage);
+  setImage("hero-bottom-image", content.hero.bottomImage);
+  setText("hero-note-left", content.hero.noteLeft);
+  setText("hero-note-right", content.hero.noteRight);
+  setText("hero-metric-top-value", content.hero.metricTop.value);
+  setText("hero-metric-top-label", content.hero.metricTop.label);
+  setText("hero-metric-bottom-value", content.hero.metricBottom.value);
+  setText("hero-metric-bottom-label", content.hero.metricBottom.label);
+
+  setText("about-kicker", content.about.kicker);
+  setText("about-title", content.about.title);
+  buildParagraphs("about-paragraphs", content.about.paragraphs);
+  renderAboutPoints();
+  setImage("about-image-large", content.about.largeImage);
+  setImage("about-image-small", content.about.smallImage);
+  setText("about-quote", content.about.quote);
+
+  setText("collections-kicker", content.collections.kicker);
+  setText("collections-title", content.collections.title);
+  setText("collections-intro", content.collections.intro);
+  renderCollections();
+
+  setText("process-kicker", content.process.kicker);
+  setText("process-title", content.process.title);
+  setText("process-intro", content.process.intro);
+  renderProcessCards();
+
+  setText("gallery-kicker", content.gallery.kicker);
+  setText("gallery-title", content.gallery.title);
+  setText("gallery-intro", content.gallery.intro);
+  buildGallery();
+
+  setText("contact-kicker", content.contact.kicker);
+  setText("contact-title", content.contact.title);
+  setText("contact-intro", content.contact.intro);
+  renderContactGrid();
+  setText("contact-note-eyebrow", content.contact.noteEyebrow);
+  setText("contact-note-title", content.contact.noteTitle);
+  setText("contact-note-text", content.contact.noteText);
+  setText("contact-note-button", content.contact.backToTopLabel);
+
+  setText("footer-name", content.footer.name);
+  setText("footer-tagline", content.footer.tagline);
+}
+
+function showLoadError() {
+  const container = getElement("gallery-intro");
+
+  if (!container) {
+    return;
+  }
+
+  container.textContent = "Υπήρξε πρόβλημα φόρτωσης του περιεχομένου. Κάνε ανανέωση της σελίδας.";
+}
+
+async function loadContent() {
+  const response = await fetch("content.json", { cache: "no-store" });
+
+  if (!response.ok) {
+    throw new Error(`Failed to load content.json: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+async function initializeSite() {
+  try {
+    content = await loadContent();
+    renderSite();
+    setupNavigation();
+    setupReveal();
+    setupLightbox();
+  } catch (error) {
+    console.error(error);
+    showLoadError();
+  }
+}
+
+initializeSite();

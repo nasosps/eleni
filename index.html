@@ -26,10 +26,10 @@
     <header class="site-header">
       <div class="site-header__inner">
         <a class="brand" href="#top" aria-label="Επιστροφή στην αρχή">
-          <span class="brand-mark">EM</span>
+          <span class="brand-mark" id="brand-mark">EM</span>
           <span class="brand-copy">
-            <strong>Ελένη Μαυρίδου</strong>
-            <small>Handmade Decorative Candles</small>
+            <strong id="brand-name">Ελένη Μαυρίδου</strong>
+            <small id="brand-tagline">Handmade Decorative Candles</small>
           </span>
         </a>
 
@@ -45,12 +45,7 @@
           <span></span>
         </button>
 
-        <nav class="site-nav" id="site-nav" aria-label="Κύρια πλοήγηση">
-          <a href="#about">About</a>
-          <a href="#collections">Συλλογές</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact" class="site-nav__cta">Επικοινωνία</a>
-        </nav>
+        <nav class="site-nav" id="site-nav" aria-label="Κύρια πλοήγηση"></nav>
       </div>
     </header>
 
@@ -58,33 +53,18 @@
       <section class="hero section">
         <div class="section-shell hero-layout">
           <div class="hero-copy" data-reveal>
-            <p class="eyebrow">Handmade candles • pastel details • gift-ready moments</p>
-            <h1>Χειροποίητα κεριά που φωτίζουν κάθε στιγμή.</h1>
-            <p class="lead">
-              Τα κεριά της Ελένης Μαυρίδου κινούνται ανάμεσα σε ρομαντικά παστέλ, λουλουδένιες
-              φόρμες και συνθέσεις που μοιάζουν ταυτόχρονα τρυφερές, σύγχρονες και
-              ξεχωριστές.
+            <p class="eyebrow" id="hero-eyebrow">Handmade candles - pastel details - gift-ready moments</p>
+            <h1 id="hero-title">Χειροποίητα κεριά που φωτίζουν κάθε στιγμή.</h1>
+            <p class="lead" id="hero-lead">
+              Τα κεριά της Ελένης Μαυρίδου κινούνται ανάμεσα σε ρομαντικά παστέλ, λουλουδένιες φόρμες και συνθέσεις που μοιάζουν ταυτόχρονα τρυφερές, σύγχρονες και ξεχωριστές.
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="#gallery">Δες τις δημιουργίες</a>
-              <a class="button button-secondary" href="#contact">Στοιχεία επικοινωνίας</a>
+              <a class="button button-primary" id="hero-primary-cta" href="#gallery">Δες τις δημιουργίες</a>
+              <a class="button button-secondary" id="hero-secondary-cta" href="#contact">Στοιχεία επικοινωνίας</a>
             </div>
 
-            <ul class="hero-highlights" aria-label="Κύρια χαρακτηριστικά">
-              <li>
-                <strong>Soft pastel palette</strong>
-                <span>Απαλές αποχρώσεις που δένουν με elegant candle και gift αισθητική.</span>
-              </li>
-              <li>
-                <strong>Hand-poured feel</strong>
-                <span>Κάθε κερί δίνει την αίσθηση μικρής, προσεγμένης χειροποίητης σύνθεσης.</span>
-              </li>
-              <li>
-                <strong>Made for gifting</strong>
-                <span>Ιδανικό για δώρα, εποχιακές ιδέες και ξεχωριστές παρουσιάσεις.</span>
-              </li>
-            </ul>
+            <ul class="hero-highlights" id="hero-highlights" aria-label="Κύρια χαρακτηριστικά"></ul>
           </div>
 
           <div class="hero-visual" data-reveal>
@@ -92,41 +72,44 @@
 
             <figure class="hero-card hero-card-main">
               <img
-                src="649929323_1445592036957617_4811656233790342485_n.jpg"
+                id="hero-main-image"
+                src="media/649929323_1445592036957617_4811656233790342485_n.jpg"
                 alt="Ρομαντική σύνθεση με χειροποίητα κεριά και λουλουδένιες λεπτομέρειες"
               />
-              <figcaption>Signature candle arrangement</figcaption>
+              <figcaption id="hero-main-caption">Signature candle arrangement</figcaption>
             </figure>
 
             <figure class="hero-card hero-card-top">
               <img
-                src="634117934_1619186429319204_5813764445398311840_n.jpg"
+                id="hero-top-image"
+                src="media/634117934_1619186429319204_5813764445398311840_n.jpg"
                 alt="Χειροποίητα κεριά σε ρομαντική σύνθεση με λουλούδια και λαγουδάκι"
               />
             </figure>
 
             <figure class="hero-card hero-card-bottom">
               <img
-                src="648544957_1802575880714048_1335952957219468782_n.jpg"
+                id="hero-bottom-image"
+                src="media/648544957_1802575880714048_1335952957219468782_n.jpg"
                 alt="Gift boxes με χειροποίητα pastel κεριά"
               />
             </figure>
 
             <div class="floating-note floating-note-left">
-              <span>Pastel textures</span>
+              <span id="hero-note-left">Pastel textures</span>
             </div>
             <div class="floating-note floating-note-right">
-              <span>Gift-ready details</span>
+              <span id="hero-note-right">Gift-ready details</span>
             </div>
 
             <div class="hero-metric hero-metric-top">
-              <strong>26+</strong>
-              <span>φωτογραφίες στη gallery</span>
+              <strong id="hero-metric-top-value">26+</strong>
+              <span id="hero-metric-top-label">φωτογραφίες στη gallery</span>
             </div>
 
             <div class="hero-metric hero-metric-bottom">
-              <strong>100%</strong>
-              <span>χειροποίητο ύφος</span>
+              <strong id="hero-metric-bottom-value">100%</strong>
+              <span id="hero-metric-bottom-label">χειροποίητο ύφος</span>
             </div>
           </div>
         </div>
@@ -135,52 +118,32 @@
       <section class="section" id="about">
         <div class="section-shell about-grid">
           <article class="story-card panel" data-reveal>
-            <p class="section-kicker">Το ύφος</p>
-            <h2>Ρομαντικό, μοντέρνο και τόσο προσεγμένο ώστε κάθε κερί να δείχνει σαν μικρό έργο τέχνης.</h2>
-            <p>
-              Από τις φωτογραφίες φαίνεται καθαρά ότι η ταυτότητα της δουλειάς δεν είναι απλώς
-              “χειροποίητη”. Είναι μια πολύ συγκεκριμένη μίξη από sculpted κεριά, floral φόρμες,
-              vintage πινελιές και gift presentation που κάνει κάθε κομμάτι να ξεχωρίζει.
-            </p>
-            <p>
-              Απαλό φως, λεπτομέρεια και τρυφερές φόρμες συνθέτουν έναν κόσμο που μοιάζει ήσυχος,
-              κομψός και γεμάτος μικρές όμορφες στιγμές.
-            </p>
-
-            <div class="story-points">
-              <div class="story-point">
-                <strong>Απαλές υφές</strong>
-                <span>Κρεμ, ροζ, λιλά και sage πινελιές που δένουν τέλεια με το κερί.</span>
-              </div>
-              <div class="story-point">
-                <strong>Γλυπτικές φόρμες</strong>
-                <span>Λουλούδια, φιγούρες και θεματικά σχήματα που δίνουν χαρακτήρα σε κάθε κερί.</span>
-              </div>
-              <div class="story-point">
-                <strong>Προσεγμένη παρουσίαση</strong>
-                <span>Boxes, ribbons και arrangements που δείχνουν έτοιμα για δώρο.</span>
-              </div>
+            <p class="section-kicker" id="about-kicker">Το ύφος</p>
+            <h2 id="about-title">Ρομαντικό, μοντέρνο και τόσο προσεγμένο ώστε κάθε κερί να δείχνει σαν μικρό έργο τέχνης.</h2>
+            <div id="about-paragraphs">
+              <p>Από τις φωτογραφίες φαίνεται καθαρά ότι η ταυτότητα της δουλειάς δεν είναι απλώς χειροποίητη.</p>
             </div>
+
+            <div class="story-points" id="about-points"></div>
           </article>
 
           <div class="about-visual" data-reveal>
             <figure class="about-photo about-photo-large">
               <img
-                src="646401605_1611295286792531_1693032952503617363_n.jpg"
+                id="about-image-large"
+                src="media/646401605_1611295286792531_1693032952503617363_n.jpg"
                 alt="Χειροποίητα κεριά σε ροζ και λευκούς τόνους"
               />
             </figure>
             <figure class="about-photo">
               <img
-                src="642956299_3134608536710752_4839227349564883787_n.jpg"
+                id="about-image-small"
+                src="media/642956299_3134608536710752_4839227349564883787_n.jpg"
                 alt="Μικρή pastel σύνθεση με χειροποίητα κεριά"
               />
             </figure>
             <blockquote class="quote-card">
-              <p>
-                “Όταν το κερί συναντά το floral styling, το αποτέλεσμα δεν είναι απλώς
-                όμορφο. Είναι αξέχαστο.”
-              </p>
+              <p id="about-quote">“Όταν το κερί συναντά το floral styling, το αποτέλεσμα δεν είναι απλώς όμορφο. Είναι αξέχαστο.”</p>
             </blockquote>
           </div>
         </div>
@@ -190,103 +153,29 @@
         <div class="section-shell">
           <div class="section-heading" data-reveal>
             <div>
-              <p class="section-kicker">Signature συλλογές</p>
-              <h2>Τρεις κατευθύνσεις που δίνουν χαρακτήρα σε κάθε συλλογή.</h2>
+              <p class="section-kicker" id="collections-kicker">Signature συλλογές</p>
+              <h2 id="collections-title">Τρεις κατευθύνσεις που δίνουν χαρακτήρα σε κάθε συλλογή.</h2>
             </div>
-            <p>
-              Οι φωτογραφίες δίνουν καθαρά τρεις αισθητικές διαδρομές: λουλουδένια κεριά,
-              playful seasonal κομμάτια και gift boxes με ιδιαίτερη παρουσία.
+            <p id="collections-intro">
+              Οι φωτογραφίες δίνουν καθαρά τρεις αισθητικές διαδρομές: λουλουδένια κεριά, playful seasonal κομμάτια και gift boxes με ιδιαίτερη παρουσία.
             </p>
           </div>
 
-          <div class="collections-grid">
-            <article class="collection-card" data-reveal>
-              <div class="collection-media">
-                <img
-                  src="649929323_1445592036957617_4811656233790342485_n.jpg"
-                  alt="Ρομαντική σύνθεση με χειροποίητα λουλουδένια κεριά"
-                />
-                <span class="collection-index">01</span>
-              </div>
-              <div class="collection-body">
-                <p class="collection-tag">Candle Blooms</p>
-                <h3>Λουλουδένια κεριά</h3>
-                <p>
-                  Ρομαντικά κεριά με λουλουδένιο χαρακτήρα, απαλά χρώματα και elegant layering
-                  που θυμίζει premium χειροποίητη σύνθεση.
-                </p>
-              </div>
-            </article>
-
-            <article class="collection-card" data-reveal>
-              <div class="collection-media">
-                <img
-                  src="643616457_957602726705317_5555487890073409819_n.jpg"
-                  alt="Χειροποίητο gift box με pastel κεριά"
-                />
-                <span class="collection-index">02</span>
-              </div>
-              <div class="collection-body">
-                <p class="collection-tag">Gift Sets</p>
-                <h3>Boxed candles</h3>
-                <p>
-                  Συσκευασίες με ribbon, vintage craft αισθητική και χρωματικές αντιθέσεις που
-                  κάνουν τα κεριά ιδανικά για δώρο ή custom παραγγελία.
-                </p>
-              </div>
-            </article>
-
-            <article class="collection-card" data-reveal>
-              <div class="collection-media">
-                <img
-                  src="645077545_1441517390859420_6596153206727601340_n.jpg"
-                  alt="Seasonal σύνθεση με χειροποίητα κεριά και playful στοιχεία"
-                />
-                <span class="collection-index">03</span>
-              </div>
-              <div class="collection-body">
-                <p class="collection-tag">Seasonal Candles</p>
-                <h3>Μικρές θεματικές ιστορίες</h3>
-                <p>
-                  Πασχαλινές και playful πινελιές που φέρνουν προσωπικότητα, αφήγηση και μια πιο
-                  χαρούμενη διάσταση στη συλλογή των κεριών.
-                </p>
-              </div>
-            </article>
-          </div>
+          <div class="collections-grid" id="collections-grid"></div>
         </div>
       </section>
 
       <section class="section process-section">
         <div class="section-shell process-layout">
           <div class="process-copy" data-reveal>
-            <p class="section-kicker">Χαρακτήρας</p>
-            <h2>Απαλά χρώματα, γλυπτικές φόρμες και λεπτομέρειες που μένουν στη μνήμη.</h2>
-            <p>
-              Κάθε κερί έχει τη δική του μικρή ταυτότητα, άλλοτε ρομαντική και ανθισμένη,
-              άλλοτε παιχνιδιάρικη και γιορτινή, πάντα όμως προσεγμένη μέχρι την τελευταία λεπτομέρεια.
+            <p class="section-kicker" id="process-kicker">Χαρακτήρας</p>
+            <h2 id="process-title">Απαλά χρώματα, γλυπτικές φόρμες και λεπτομέρειες που μένουν στη μνήμη.</h2>
+            <p id="process-intro">
+              Κάθε κερί έχει τη δική του μικρή ταυτότητα, άλλοτε ρομαντική και ανθισμένη, άλλοτε παιχνιδιάρικη και γιορτινή, πάντα όμως προσεγμένη μέχρι την τελευταία λεπτομέρεια.
             </p>
           </div>
 
-          <div class="process-track">
-            <article class="process-card" data-reveal>
-              <span class="process-number">01</span>
-              <h3>Απαλότητα</h3>
-              <p>Ζεστοί τόνοι, παστέλ αποχρώσεις και ήρεμη αίσθηση που δένει όμορφα με το κερί.</p>
-            </article>
-
-            <article class="process-card" data-reveal>
-              <span class="process-number">02</span>
-              <h3>Λεπτομέρεια</h3>
-              <p>Λουλούδια, φιγούρες και μικρά διακοσμητικά στοιχεία που δίνουν προσωπικότητα σε κάθε κομμάτι.</p>
-            </article>
-
-            <article class="process-card" data-reveal>
-              <span class="process-number">03</span>
-              <h3>Δώρο</h3>
-              <p>Συνθέσεις και συσκευασίες που δείχνουν φτιαγμένες για ξεχωριστές περιστάσεις και όμορφες χειρονομίες.</p>
-            </article>
-          </div>
+          <div class="process-track" id="process-track"></div>
         </div>
       </section>
 
@@ -294,19 +183,18 @@
         <div class="section-shell">
           <div class="section-heading" data-reveal>
             <div>
-              <p class="section-kicker">Gallery</p>
-              <h2>Τα κεριά της Ελένης, γεμάτα χρώμα, υφή και τρυφερή λεπτομέρεια.</h2>
+              <p class="section-kicker" id="gallery-kicker">Gallery</p>
+              <h2 id="gallery-title">Τα κεριά της Ελένης, γεμάτα χρώμα, υφή και τρυφερή λεπτομέρεια.</h2>
             </div>
-            <p>
-              Από λουλουδένιες συνθέσεις μέχρι seasonal ιδέες και gift boxes, κάθε φωτογραφία
-              αποτυπώνει έναν δικό της μικρό κόσμο.
+            <p id="gallery-intro">
+              Από λουλουδένιες συνθέσεις μέχρι seasonal ιδέες και gift boxes, κάθε φωτογραφία αποτυπώνει έναν δικό της μικρό κόσμο.
             </p>
           </div>
 
           <div class="gallery-frame" data-reveal>
             <div class="gallery-grid" id="gallery-grid"></div>
             <noscript>
-              <p class="noscript-note">Η gallery χρειάζεται JavaScript για να εμφανιστεί πλήρως.</p>
+              <p class="noscript-note">Το site χρειάζεται JavaScript για να εμφανίσει σωστά τη gallery και το editable περιεχόμενο.</p>
             </noscript>
           </div>
         </div>
@@ -315,39 +203,18 @@
       <section class="section" id="contact">
         <div class="section-shell contact-layout">
           <article class="contact-panel panel" data-reveal>
-            <p class="section-kicker">Επικοινωνία</p>
-            <h2>Για παραγγελίες, δώρα και ξεχωριστές δημιουργίες.</h2>
-            <p>
-              Instagram, email, τηλέφωνο και τοποθεσία θα προστεθούν σύντομα.
-            </p>
+            <p class="section-kicker" id="contact-kicker">Επικοινωνία</p>
+            <h2 id="contact-title">Για παραγγελίες, δώρα και ξεχωριστές δημιουργίες.</h2>
+            <p id="contact-intro">Instagram, email, τηλέφωνο και τοποθεσία θα προστεθούν σύντομα.</p>
 
-            <div class="contact-grid">
-              <div class="contact-pill">
-                <span>Instagram</span>
-                <strong>@coming-soon</strong>
-              </div>
-              <div class="contact-pill">
-                <span>Email</span>
-                <strong>hello@example.com</strong>
-              </div>
-              <div class="contact-pill">
-                <span>Τηλέφωνο</span>
-                <strong>+30 000 000 0000</strong>
-              </div>
-              <div class="contact-pill">
-                <span>Τοποθεσία</span>
-                <strong>Θα προστεθεί</strong>
-              </div>
-            </div>
+            <div class="contact-grid" id="contact-grid"></div>
           </article>
 
           <aside class="contact-note panel" data-reveal>
-            <p class="contact-note__eyebrow">Coming Soon</p>
-            <h3>Custom παραγγελίες, seasonal κομμάτια και ιδιαίτερες προτάσεις για δώρο.</h3>
-            <p>
-              Τα στοιχεία επικοινωνίας θα μπουν εδώ, ώστε η επικοινωνία να είναι άμεση και απλή.
-            </p>
-            <a class="button button-primary button-wide" href="#top">Πίσω στην αρχή</a>
+            <p class="contact-note__eyebrow" id="contact-note-eyebrow">Coming Soon</p>
+            <h3 id="contact-note-title">Custom παραγγελίες, seasonal κομμάτια και ιδιαίτερες προτάσεις για δώρο.</h3>
+            <p id="contact-note-text">Τα στοιχεία επικοινωνίας θα μπουν εδώ, ώστε η επικοινωνία να είναι άμεση και απλή.</p>
+            <a class="button button-primary button-wide" id="contact-note-button" href="#top">Πίσω στην αρχή</a>
           </aside>
         </div>
       </section>
@@ -355,8 +222,8 @@
 
     <footer class="site-footer">
       <div class="section-shell site-footer__inner">
-        <p>Ελένη Μαυρίδου</p>
-        <p>Handmade candles with a modern romantic feel.</p>
+        <p id="footer-name">Ελένη Μαυρίδου</p>
+        <p id="footer-tagline">Handmade candles with a modern romantic feel.</p>
       </div>
     </footer>
 
