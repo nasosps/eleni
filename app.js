@@ -219,7 +219,15 @@ function buildContactPill(label, value) {
 
   pill.className = "contact-pill";
   labelElement.textContent = label;
-  valueElement.textContent = value;
+
+  if (typeof value === "string" && value.includes("@")) {
+    const [localPart, ...domainParts] = value.split("@");
+    valueElement.append(localPart, "@");
+    valueElement.appendChild(document.createElement("wbr"));
+    valueElement.append(domainParts.join("@"));
+  } else {
+    valueElement.textContent = value;
+  }
 
   pill.append(labelElement, valueElement);
 
@@ -462,6 +470,7 @@ function renderSite() {
   }
 
   setText("brand-mark", content.brand.mark);
+  setImage("brand-logo", content.brand.logo);
   setText("brand-name", content.brand.name);
   setText("brand-tagline", content.brand.tagline);
 

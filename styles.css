@@ -148,13 +148,33 @@ button {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #fffaf6;
+  border: 1px solid rgba(124, 86, 81, 0.08);
+  box-shadow: 0 12px 30px rgba(184, 95, 132, 0.24);
+  flex-shrink: 0;
+}
+
+.brand-mark__fallback {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, rgba(215, 134, 163, 0.92), rgba(186, 167, 221, 0.92));
   color: #fff;
   font-weight: 800;
   letter-spacing: 0.08em;
-  box-shadow: 0 12px 30px rgba(184, 95, 132, 0.24);
+}
+
+.brand-logo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .brand-copy {
@@ -435,6 +455,12 @@ body.nav-open .nav-toggle span:nth-child(3) {
   font-weight: 800;
 }
 
+.contact-pill strong {
+  overflow-wrap: normal;
+  word-break: normal;
+  line-height: 1.45;
+}
+
 .hero-highlights span,
 .story-point span,
 .contact-pill span {
@@ -610,6 +636,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
 .contact-pill {
   padding: 1rem 1.05rem;
   border-radius: 22px;
+  min-width: 0;
 }
 
 .about-visual {
@@ -1169,15 +1196,89 @@ body.nav-open .nav-toggle span:nth-child(3) {
     width: min(var(--container), calc(100% - 1.25rem));
   }
 
+  .site-header__inner {
+    gap: 0.7rem;
+  }
+
+  .brand {
+    gap: 0.7rem;
+    max-width: calc(100% - 4.2rem);
+  }
+
+  .brand-copy strong,
+  .brand-copy small {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .brand-copy strong {
+    font-size: 0.92rem;
+    line-height: 1.05;
+  }
+
+  .brand-copy small {
+    font-size: 0.62rem;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-copy h1,
+  .section-heading h2,
+  .story-card h2,
+  .process-copy h2,
+  .contact-panel h2 {
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
   .hero-copy h1 {
-    font-size: clamp(3.15rem, 17vw, 4.6rem);
+    max-width: 12ch;
+    font-size: clamp(2.7rem, 13.5vw, 3.7rem);
   }
 
   .section-heading h2,
   .story-card h2,
   .process-copy h2,
   .contact-panel h2 {
-    font-size: clamp(2.35rem, 11vw, 3.35rem);
+    max-width: 14ch;
+    font-size: clamp(1.95rem, 9.3vw, 2.75rem);
+  }
+
+  .quote-card p {
+    font-size: clamp(1.35rem, 6.8vw, 1.85rem);
+    line-height: 1.12;
+  }
+
+  .lead,
+  .story-card p,
+  .process-copy p,
+  .contact-panel p,
+  .contact-note p,
+  .collection-body p,
+  .section-heading p,
+  .process-card p,
+  .contact-pill span {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    gap: 0.75rem;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.1rem;
+  }
+
+  .contact-pill strong,
+  .collection-body h3,
+  .contact-note h3,
+  .process-card h3,
+  .gallery-card__meta strong {
+    font-size: 1rem;
   }
 
   .hero-visual {
@@ -1202,15 +1303,21 @@ body.nav-open .nav-toggle span:nth-child(3) {
   .floating-note {
     font-size: 0.68rem;
     padding: 0.55rem 0.75rem;
+    max-width: 8rem;
   }
 
   .hero-metric {
-    min-width: 7.6rem;
-    padding: 0.8rem 0.85rem;
+    min-width: 7rem;
+    padding: 0.75rem;
   }
 
   .hero-metric strong {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
+  }
+
+  .hero-metric span {
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 
   .gallery-card,

@@ -5,6 +5,10 @@
   },
   "brand": {
     "mark": "EM",
+    "logo": {
+      "src": "media/logo-eleni-mark.svg",
+      "alt": "Eleni candle logo mark"
+    },
     "name": "Ελένη Μαυρίδου",
     "tagline": "Handmade Decorative Candles"
   },

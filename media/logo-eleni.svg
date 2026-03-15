@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" fill="none">
+  <defs>
+    <linearGradient id="lockup-ring" x1="101" y1="22" x2="258" y2="179" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D786A3"/>
+      <stop offset="0.52" stop-color="#BAA7DD"/>
+      <stop offset="1" stop-color="#A7B89B"/>
+    </linearGradient>
+    <radialGradient id="lockup-halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 100) rotate(90) scale(108)">
+      <stop stop-color="#FFFDFB"/>
+      <stop offset="1" stop-color="#FFF6F1"/>
+    </radialGradient>
+    <linearGradient id="lockup-flame" x1="180" y1="52" x2="180" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5A1BA"/>
+      <stop offset="1" stop-color="#C97B9D"/>
+    </linearGradient>
+  </defs>
+  <circle cx="180" cy="100" r="98" fill="url(#lockup-halo)"/>
+  <circle cx="180" cy="100" r="90" fill="#FFF9F5" stroke="url(#lockup-ring)" stroke-width="10"/>
+  <circle cx="180" cy="100" r="72" fill="#FFFDFC" stroke="#E9D8E0" stroke-width="2"/>
+  <g stroke="#5D484D" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M151 122c7-14 21-22 29-22s22 8 29 22l-8 24c-2 8-10 14-18 14h-6c-8 0-16-6-18-14l-8-24Z" fill="#F7DEE7" stroke-width="6"/>
+    <path d="M150 122c11-8 18 6 30 0s19 8 30 0" stroke-width="6"/>
+    <path d="M170 156h20" stroke-width="6"/>
+    <path d="M180 52c14 12 19 30 0 48-19-18-14-36 0-48Z" fill="url(#lockup-flame)" stroke-width="6"/>
+    <path d="M154 77c15-1 24 11 25 26-16 1-27-9-25-26Z" fill="#BAA7DD" stroke-width="6"/>
+    <path d="M206 77c-15-1-24 11-25 26 16 1 27-9 25-26Z" fill="#A7B89B" stroke-width="6"/>
+    <path d="M180 100v16" stroke-width="6"/>
+  </g>
+  <circle cx="142" cy="75" r="5" fill="#D786A3"/>
+  <circle cx="219" cy="68" r="4.5" fill="#BAA7DD"/>
+  <circle cx="213" cy="156" r="5" fill="#A7B89B"/>
+  <text x="180" y="248" fill="#382728" font-family="Cormorant Garamond, Georgia, serif" font-size="56" font-weight="700" letter-spacing="6" text-anchor="middle">ELENI</text>
+  <text x="180" y="282" fill="#8A6871" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="5" text-anchor="middle">HANDMADE CANDLES</text>
+</svg>

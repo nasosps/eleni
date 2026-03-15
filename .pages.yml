@@ -23,6 +23,19 @@ content:
         label: Brand
         type: object
         fields:
+          - name: mark
+            label: Fallback initials
+            type: string
+          - name: logo
+            label: Brand logo
+            type: object
+            fields:
+              - name: src
+                label: Logo image
+                type: image
+              - name: alt
+                label: Logo alt text
+                type: string
           - name: name
             label: Brand name
             type: string
